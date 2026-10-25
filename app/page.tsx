@@ -12,7 +12,7 @@ const jsonLd = {
   name: "David Villagomez",
   jobTitle: "Desarrollador Full Stack",
   description:
-    "Desarrollador Fulll Stack especializado en negocios digitalesm con perfil híbrido en desarrollo de software, mantenimiento de hardware y producción mutimedia.",
+    "Desarrollador Full Stack especializado en negocios digitales con perfil híbrido en desarrollo de software, mantenimiento de hardware y producción multimedia.",
   url: siteUrl,
   email: "villagomezf12@gmail.com",
   address: {
