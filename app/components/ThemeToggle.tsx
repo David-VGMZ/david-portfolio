@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useState } from "react";
-import { MoonIcon, SunIcon } from "./icons";
+import { Moon, Sun } from "lucide-react";
 
 type Theme = "light" | "dark";
 
@@ -34,16 +34,26 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
+      aria-pressed={theme === "dark"}
       aria-label={
         theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"
       }
-      className="cursor-pointer inline-flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-zinc-50"
+      className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-ink hover:text-ink"
     >
-      {theme === "dark" ? (
-        <SunIcon className="h-4 w-4" />
-      ) : (
-        <MoonIcon className="h-4 w-4" />
-      )}
+      <span className="relative block h-4 w-4">
+        <Sun
+          className={`absolute inset-0 h-4 w-4 transition-all duration-300 ${
+            theme === "dark" ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"
+          }`}
+          aria-hidden="true"
+        />
+        <Moon
+          className={`absolute inset-0 h-4 w-4 transition-all duration-300 ${
+            theme === "dark" ? "rotate-90 opacity-0" : "rotate-0 opacity-100"
+          }`}
+          aria-hidden="true"
+        />
+      </span>
     </button>
   );
 }

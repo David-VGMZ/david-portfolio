@@ -3,7 +3,7 @@ import { GitHubIcon, LinkedInIcon, MailIcon } from "../icons";
 
 export default function Contact() {
   return (
-    <Section id="contact" titulo="Contacto">
+    <Section id="contacto" titulo="Contacto">
       <p className="mt-4 max-w-md text-zinc-600 dark:text-zinc-400">
         ¿Tienes un proyecto en mente o quieres que colaboremos? ¡Escríbeme!
       </p>

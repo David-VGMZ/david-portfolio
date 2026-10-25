@@ -2,7 +2,7 @@ import Section from "../Section";
 
 export default function AboutMe() {
   return (
-    <Section id="about-me" titulo="Sobre mí">
+    <Section id="sobre-mi" titulo="Sobre mí">
       <div className="grid gap-10 sm:grid-cols-3">
         <div className="space-y-4 text-zinc-600 sm:col-span-2 dark:text-zinc-400">
           <p>

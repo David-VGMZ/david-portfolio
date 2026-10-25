@@ -18,7 +18,7 @@ const proyectos = [
     ],
     repo: "#",
     demo: "https://app.proseinet.mx/",
-    imagen: "/proyects/proseinet-pwa-tienda.jpg",
+    imagen: "/proyects/proseinet-tienda-pwa.jpg",
   },
   {
     titulo: "Proseinet Sistema de Gestión de Almacén",
@@ -36,7 +36,7 @@ const proyectos = [
     ],
     repo: "#",
     demo: "#",
-    imagen: "/proyects/almacen-proseinet.jpg",
+    imagen: "/proyects/almacen-prsnt.jpg",
   },
   {
     titulo: "Proseinet Sistema de Gestión de Vacaciones",
@@ -54,13 +54,13 @@ const proyectos = [
     ],
     repo: "#",
     demo: "#",
-    imagen: "/proyects/vacaciones-proseinet.jpg",
+    imagen: "/proyects/vacaciones-prsnt.jpg",
   },
 ];
 
 export default function Proyects() {
   return (
-    <Section id="proyects" titulo="Proyectos">
+    <Section id="proyectos" titulo="Proyectos">
       <div className="grid gap-6 sm:grid-cols-2">
         {proyectos.map((proyecto) => (
           <article
