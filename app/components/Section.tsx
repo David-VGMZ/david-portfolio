@@ -22,7 +22,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`relative scroll-mt-24 py-24 sm:py-32${
+      className={`relative py-24 sm:py-32${
         tone === "surface" ? "bg-surface" : ""
       } ${className}`}
     >

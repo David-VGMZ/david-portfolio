@@ -22,22 +22,51 @@ export default function Header() {
 
   useEffect(() => {
     const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("section[id]"),
+      document.querySelectorAll<HTMLElement>("main section[id]"),
     );
     if (!sections.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] },
-    );
+    let frame = 0;
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    function update() {
+      frame = 0;
+
+      const last = sections[sections.length - 1];
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+
+      if (atBottom && last) {
+        setActive(last.id);
+        return;
+      }
+
+      const line = window.scrollY + 120;
+      let current = sections[0]?.id ?? "";
+
+      for (const section of sections) {
+        const top = section.getBoundingClientRect().top + window.scrollY;
+        if (top <= line) current = section.id;
+        else break;
+      }
+
+      setActive(current);
+    }
+
+    function onScroll() {
+      if (frame) return;
+      frame = requestAnimationFrame(update);
+    }
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
@@ -63,7 +92,7 @@ export default function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  aria-current={active === link.id ? "true" : undefined}
+                  aria-current={active === link.id ? "location" : undefined}
                   className={`rounded-full px-3 py-2 text-sm transition-colors ${
                     active === link.id
                       ? "bg-ink text-paper"

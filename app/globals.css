@@ -31,7 +31,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 5rem;
     color-scheme: light;
   }
 }

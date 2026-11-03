@@ -5,7 +5,7 @@ import { ArrowUpRight, Download } from "lucide-react";
 import Magnetic from "../ui/Magnetic";
 import { site } from "@/lib/site";
 
-const stast = [
+const stats = [
   { value: "3", label: "sistemas en producción" },
   { value: "3", label: "módulos integrados" },
   { value: "1", label: "PWA desplegada" },
@@ -33,7 +33,7 @@ export default function Hero() {
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500/60 motion-reduce:animate-none" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-100-500" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
               </span>
               Disponible · Full Stack · Remoto o Morelia
             </p>
@@ -88,7 +88,7 @@ export default function Hero() {
               className="hero-in mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-line pt-6"
               style={delay(360)}
             >
-              {stast.map((stat) => (
+              {stats.map((stat) => (
                 <div key={stat.label}>
                   <dt className="sr-only">{stat.label}</dt>
                   <dd className="font-display text-3xl font-bold tracking-tight">

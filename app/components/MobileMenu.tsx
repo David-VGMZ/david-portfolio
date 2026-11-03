@@ -17,7 +17,7 @@ export default function MobileMenu() {
   }, []);
 
   useEffect(() => {
-    const query = window.matchMedia("(min-width: 640px");
+    const query = window.matchMedia("(min-width: 640px)");
     function onChange() {
       if (query.matches) setOpen(false);
     }
